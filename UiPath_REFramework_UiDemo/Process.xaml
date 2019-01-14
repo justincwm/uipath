@@ -1,7 +1,6 @@
 ﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="ProcessTransaction"
  xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
  xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
- xmlns:do="clr-namespace:DocumentFormat.OpenXml;assembly=DocumentFormat.OpenXml"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
  xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
  xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
@@ -79,9 +78,9 @@
         <Variable x:TypeArguments="x:String" Name="CashIn" />
         <Variable x:TypeArguments="x:String" Name="OnUsCheck" />
         <Variable x:TypeArguments="x:String" Name="NotOnUsCheck" />
-        <Variable x:TypeArguments="do:DoubleValue" Name="dbl_CashIn" />
-        <Variable x:TypeArguments="do:DoubleValue" Name="dbl_OnUsCheck" />
-        <Variable x:TypeArguments="do:DoubleValue" Name="dbl_NotOnUsCheck" />
+        <Variable x:TypeArguments="x:Double" Name="dbl_CashIn" />
+        <Variable x:TypeArguments="x:Double" Name="dbl_OnUsCheck" />
+        <Variable x:TypeArguments="x:Double" Name="dbl_NotOnUsCheck" />
       </Flowchart.Variables>
       <Flowchart.StartNode>
         <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_4">
@@ -114,88 +113,58 @@
           <FlowStep.Next>
             <FlowDecision x:Name="__ReferenceID1" Condition="[Double.TryParse(CashIn, dbl_CashIn) And Double.TryParse(OnUsCheck, dbl_OnUsCheck) And Double.TryParse(NotOnUsCheck, dbl_NotOnUsCheck)]" DisplayName="Input Data" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
               <FlowDecision.True>
-                <FlowStep x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_5">
-                  <Sequence DisplayName="Convert to Double" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                    <Assign sap2010:WorkflowViewState.IdRef="Assign_4">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="do:DoubleValue">[dbl_CashIn]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="do:DoubleValue">[Convert.ToDouble(CashIn)]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                    <Assign sap2010:WorkflowViewState.IdRef="Assign_5">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="do:DoubleValue">[dbl_OnUsCheck]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="do:DoubleValue">[Convert.ToDouble(OnUsCheck)]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                    <Assign sap2010:WorkflowViewState.IdRef="Assign_6">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="do:DoubleValue">[dbl_NotOnUsCheck]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="do:DoubleValue">[Convert.ToDouble(NotOnUsCheck)]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                  </Sequence>
-                  <FlowStep.Next>
-                    <FlowDecision x:Name="__ReferenceID2" DisplayName="Less than 1000" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
-                      <FlowDecision.True>
-                        <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_1">
-                          <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'UIDemo.exe  UIDemo'" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="cb2b0c21184175a4ddd8ae62d3ef4846" Selector="&lt;wnd app='uidemo.exe' cls='HwndWrapper*' title='UIDemo' /&gt;">
-                            <ui:WindowScope.Body>
-                              <ActivityAction x:TypeArguments="x:Object">
-                                <ActivityAction.Argument>
-                                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                                </ActivityAction.Argument>
-                                <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                                  <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'editable text  cashintb'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="[CashIn]">
-                                    <ui:TypeInto.Target>
-                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="a270d59e7d045bf74d1610e1ada35250" Selector="&lt;ctrl automationid='cashintb' /&gt;" WaitForReady="INTERACTIVE" />
-                                    </ui:TypeInto.Target>
-                                  </ui:TypeInto>
-                                  <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'editable text  onustb'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="False" Text="[OnUsCheck]">
-                                    <ui:TypeInto.Target>
-                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="29b27325a2b753d3bc8b0f591ee86be7" Selector="&lt;ctrl automationid='onustb' /&gt;" WaitForReady="INTERACTIVE" />
-                                    </ui:TypeInto.Target>
-                                  </ui:TypeInto>
-                                  <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'editable text  notonustb'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="[NotOnUsCheck]">
-                                    <ui:TypeInto.Target>
-                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="28a3951ef3cc8d1eb8c457a4cdfa74fe" Selector="&lt;ctrl automationid='notonustb' /&gt;" WaitForReady="INTERACTIVE" />
-                                    </ui:TypeInto.Target>
-                                  </ui:TypeInto>
-                                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'text  Accept'" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
-                                    <ui:Click.CursorPosition>
-                                      <ui:CursorPosition Position="Center">
-                                        <ui:CursorPosition.OffsetX>
-                                          <InArgument x:TypeArguments="x:Int32" />
-                                        </ui:CursorPosition.OffsetX>
-                                        <ui:CursorPosition.OffsetY>
-                                          <InArgument x:TypeArguments="x:Int32" />
-                                        </ui:CursorPosition.OffsetY>
-                                      </ui:CursorPosition>
-                                    </ui:Click.CursorPosition>
-                                    <ui:Click.Target>
-                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="08177c96f3d9b96360ba243ae517a924" Selector="&lt;ctrl name='Accept' role='push button' /&gt;&lt;ctrl name='Accept' role='text' /&gt;" WaitForReady="INTERACTIVE" />
-                                    </ui:Click.Target>
-                                  </ui:Click>
-                                </Sequence>
-                              </ActivityAction>
-                            </ui:WindowScope.Body>
-                          </ui:WindowScope>
-                        </FlowStep>
-                      </FlowDecision.True>
-                      <FlowDecision.False>
-                        <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_2">
-                          <Throw DisplayName="Throw CashIn too large" Exception="[New Exception(&quot;CashIn too large&quot;)]" sap2010:WorkflowViewState.IdRef="Throw_1" />
-                        </FlowStep>
-                      </FlowDecision.False>
-                    </FlowDecision>
-                  </FlowStep.Next>
-                </FlowStep>
+                <FlowDecision x:Name="__ReferenceID2" Condition="[dbl_CashIn &lt; 1000]" DisplayName="Less than 1000" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+                  <FlowDecision.True>
+                    <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+                      <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'UIDemo.exe  UIDemo'" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="cb2b0c21184175a4ddd8ae62d3ef4846" Selector="&lt;wnd app='uidemo.exe' cls='HwndWrapper*' title='UIDemo' /&gt;">
+                        <ui:WindowScope.Body>
+                          <ActivityAction x:TypeArguments="x:Object">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                              <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'editable text  cashintb'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="[CashIn]">
+                                <ui:TypeInto.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="a270d59e7d045bf74d1610e1ada35250" Selector="&lt;ctrl automationid='cashintb' /&gt;" WaitForReady="INTERACTIVE" />
+                                </ui:TypeInto.Target>
+                              </ui:TypeInto>
+                              <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'editable text  onustb'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="False" Text="[OnUsCheck]">
+                                <ui:TypeInto.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="29b27325a2b753d3bc8b0f591ee86be7" Selector="&lt;ctrl automationid='onustb' /&gt;" WaitForReady="INTERACTIVE" />
+                                </ui:TypeInto.Target>
+                              </ui:TypeInto>
+                              <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'editable text  notonustb'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="[NotOnUsCheck]">
+                                <ui:TypeInto.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="28a3951ef3cc8d1eb8c457a4cdfa74fe" Selector="&lt;ctrl automationid='notonustb' /&gt;" WaitForReady="INTERACTIVE" />
+                                </ui:TypeInto.Target>
+                              </ui:TypeInto>
+                              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'text  Accept'" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                                <ui:Click.CursorPosition>
+                                  <ui:CursorPosition Position="Center">
+                                    <ui:CursorPosition.OffsetX>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:CursorPosition.OffsetX>
+                                    <ui:CursorPosition.OffsetY>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:CursorPosition.OffsetY>
+                                  </ui:CursorPosition>
+                                </ui:Click.CursorPosition>
+                                <ui:Click.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="08177c96f3d9b96360ba243ae517a924" Selector="&lt;ctrl name='Accept' role='push button' /&gt;&lt;ctrl name='Accept' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                                </ui:Click.Target>
+                              </ui:Click>
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:WindowScope.Body>
+                      </ui:WindowScope>
+                    </FlowStep>
+                  </FlowDecision.True>
+                  <FlowDecision.False>
+                    <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_2">
+                      <Throw DisplayName="Throw CashIn too large" Exception="[New Exception(&quot;CashIn too large&quot;)]" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                    </FlowStep>
+                  </FlowDecision.False>
+                </FlowDecision>
               </FlowDecision.True>
               <FlowDecision.False>
                 <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_3">
@@ -212,9 +181,8 @@
       <x:Reference>__ReferenceID3</x:Reference>
       <x:Reference>__ReferenceID4</x:Reference>
       <x:Reference>__ReferenceID5</x:Reference>
-      <x:Reference>__ReferenceID6</x:Reference>
     </Flowchart>
-    <sads:DebugSymbol.Symbol>d0dDOlxVc2Vyc1xKdXN0aW5cRG9jdW1lbnRzXFVpUGF0aFxVaVBhdGhfUkVGcmFtZXdvcmtfVWlEZW1vXFByb2Nlc3MueGFtbClMA9oBDgIBAU0F2AERAgECWAtxFgIBJnM9c8YBAgElygETygGwAQIBI3YTjwEeAgEWwQEbwQGtAQIBFJQBG7wBLAIBA1kNYBYCAS9hDWgWAgEraQ1wFgIBJ8oBRsoBgwECASR3FX4eAgEffxWGAR4CARuHARWOAR4CARfBAVHBAYABAgEVlAGpApQB6wICAROaASG5ASwCAQReOF5vAgEyWzlbQQIBMGY4ZnICAS5jOWNEAgEsbjhudQIBKms5a0cCASh8RnxgAgEieUd5UwIBIIQBRoQBYwIBHoEBR4EBVgIBHIwBRowBZgIBGokBR4kBWQIBGJsBI58BMQIBD6ABI6QBMQIBC6UBI6kBMQIBB6oBI7gBLgIBBZ0BtgGdAd4BAgESmwHHApsB0QICARCiAbYBogHcAQIBDqABxQKgAdICAgEMpwG2AacB3wECAQqlAcgCpQHYAgIBCLYBtgG2AY8CAgEG</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d0dDOlxVc2Vyc1xKdXN0aW5cRG9jdW1lbnRzXFVpUGF0aFxVaVBhdGhfUkVGcmFtZXdvcmtfVWlEZW1vXFByb2Nlc3MueGFtbCBLA7oBDgIBAUwFuAERAgECVwtwFgIBIXI9csYBAgEaqwETqwGwAQIBGHRBdFkCARakARekAakBAgEUdxefASgCAQNYDV8WAgEqYA1nFgIBJmgNbxYCASKrAUarAYMBAgEZpAFNpAF8AgEVd6UCd+cCAgETfR2cASgCAQRdOF1vAgEtWjlaQQIBK2U4ZXICASliOWJEAgEnbThtdQIBJWo5akcCASN+H4IBLQIBD4MBH4cBLQIBC4gBH4wBLQIBB40BH5sBKgIBBYABsgGAAdoBAgESfsMCfs0CAgEQhQGyAYUB2AECAQ6DAcECgwHOAgIBDIoBsgGKAdsBAgEKiAHEAogB1AICAQiZAbIBmQGLAgIBBg==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -222,16 +190,6 @@
       <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="243.2,60" />
       <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="243.2,60" />
       <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="200,52.8">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Assign_4" sap:VirtualizedContainerService.HintSize="243.2,60" />
-      <sap2010:ViewStateData Id="Assign_5" sap:VirtualizedContainerService.HintSize="243.2,60" />
-      <sap2010:ViewStateData Id="Assign_6" sap:VirtualizedContainerService.HintSize="243.2,60" />
-      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="200,52.8">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -292,15 +250,6 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="FlowStep_5">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">10,183.6</av:Point>
-            <av:Size x:Key="ShapeSize">200,52.8</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">10,210 0,210 0,266.4 171.6,266.4 171.6,296.4</av:PointCollection>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="Throw_2" sap:VirtualizedContainerService.HintSize="200,22.4">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -322,7 +271,7 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <av:Point x:Key="ShapeLocation">264.8,226.4</av:Point>
             <av:Size x:Key="ShapeSize">70.4,87.2</av:Size>
-            <av:PointCollection x:Key="TrueConnector">264.8,270 234.8,270 234.8,210 210,210</av:PointCollection>
+            <av:PointCollection x:Key="TrueConnector">264.8,270 171.6,270 171.6,296.4</av:PointCollection>
             <x:String x:Key="TrueLabel">Valid</x:String>
             <x:String x:Key="FalseLabel">Invalid</x:String>
             <av:PointCollection x:Key="FalseConnector">335.2,270 440,270</av:PointCollection>
@@ -358,7 +307,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="ProcessTransaction_1" sap:VirtualizedContainerService.HintSize="716.8,885.6" />
+      <sap2010:ViewStateData Id="ProcessTransaction_1" sap:VirtualizedContainerService.HintSize="716.8,925.6" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

@@ -57,8 +57,8 @@
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Description: Here all working processes will be killed&#xA;&#xA;Pre Condition: N/A&#xA;Post Condtion: N/A" DisplayName="Kill Processes" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="Killing processes..." />
-    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" ProcessName="{x:Null}" DisplayName="Kill Process" sap2010:WorkflowViewState.IdRef="KillProcess_1" />
-    <sads:DebugSymbol.Symbol>d1pDOlxVc2Vyc1xKdXN0aW5cRG9jdW1lbnRzXFVpUGF0aFxVaVBhdGhfUkVGcmFtZXdvcmtfVWlEZW1vXEZyYW1ld29ya1xLaWxsQWxsUHJvY2Vzc2VzLnhhbWwEOgM+DgIBATsFO4sBAgEDPAU8pwECAQI7cjuIAQIBBA==</sads:DebugSymbol.Symbol>
+    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="C:\Users\Justin\Documents\UiPath\UiPath_REFramework_UiDemo\Process.xaml" />
+    <sads:DebugSymbol.Symbol>d1pDOlxVc2Vyc1xKdXN0aW5cRG9jdW1lbnRzXFVpUGF0aFxVaVBhdGhfUkVGcmFtZXdvcmtfVWlEZW1vXEZyYW1ld29ya1xLaWxsQWxsUHJvY2Vzc2VzLnhhbWwFOgM+DgIBATsFO4sBAgEEPAU85gECAQI7cjuIAQIBBTyaATzjAQIBAw==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
