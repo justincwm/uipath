@@ -1063,9 +1063,9 @@
     "restore": {
       "projectUniqueName": "Intro",
       "projectName": "Intro",
-      "projectPath": "C:\\Users\\Justin\\Documents\\UiPath\\Intro\\.local",
+      "projectPath": "C:\\Users\\Justin\\Documents\\UiPath\\UiPath_Introduction\\.local",
       "packagesPath": "C:\\Users\\Justin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Justin\\Documents\\UiPath\\Intro\\.local"
+      "outputPath": "C:\\Users\\Justin\\Documents\\UiPath\\UiPath_Introduction\\.local"
     },
     "frameworks": {
       "net461": {
