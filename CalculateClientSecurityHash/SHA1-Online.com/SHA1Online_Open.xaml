@@ -10,7 +10,7 @@
  xmlns:ui="http://schemas.uipath.com/workflow/activities"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_SHA1OnlineURL" Type="InArgument(x:String)" />
+    <x:Property Name="in_SHA1Online_URL" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -62,7 +62,7 @@
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Opens SHA1Online from the URL argument&#xA;&#xA;Precondition: None&#xA;Post action: Opens IE SHA1Online" DisplayName="SHA1Online_Open" sap2010:WorkflowViewState.IdRef="Sequence_2">
-    <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" Hidden="False" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="False" Url="[in_SHA1OnlineURL]">
+    <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" Hidden="False" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="False" Url="[in_SHA1Online_URL]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -74,7 +74,7 @@
         </ActivityAction>
       </ui:OpenBrowser.Body>
     </ui:OpenBrowser>
-    <sads:DebugSymbol.Symbol>d2FDOlxVc2Vyc1xKdXN0aW5cRG9jdW1lbnRzXFVpUGF0aFxDYWxjdWxhdGVDbGllbnRTZWN1cml0eUhhc2hcU0hBMS1PbmxpbmUuY29tXFNIQTFPbmxpbmVfT3Blbi54YW1sBUADTg4CAQFBBUwWAgECQb8BQdMBAgEFRwtJFgIBA0gNSIUBAgEE</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d2FDOlxVc2Vyc1xKdXN0aW5cRG9jdW1lbnRzXFVpUGF0aFxDYWxjdWxhdGVDbGllbnRTZWN1cml0eUhhc2hcU0hBMS1PbmxpbmUuY29tXFNIQTFPbmxpbmVfT3Blbi54YW1sBUADTg4CAQFBBUwWAgECQb8BQdQBAgEFRwtJFgIBA0gNSIUBAgEE</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>

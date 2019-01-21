@@ -1,4 +1,4 @@
-﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="System1_WorkItems" mva:VisualBasic.Settings="{x:Null}"
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="System1_WorkItems" mva:VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="System1_WorkItems_1"
  xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
  xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
@@ -54,8 +54,8 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Navigates to Work Items page&#xD;&#xA;&#xD;&#xA;Precondition: Dashboard Page Opened&#xD;&#xA;Post action: Navigates to Work Items" DisplayName="System1_WorkItems">
-    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON'" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+  <Sequence sap2010:Annotation.AnnotationText="Navigates to Work Items page&#xA;&#xA;Precondition: Dashboard Page Opened&#xA;Post action: Navigates to Work Items" DisplayName="System1_WorkItems" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON'" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -67,14 +67,11 @@
         </ui:CursorPosition>
       </ui:Click.CursorPosition>
       <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="fd5b0ecee86b21a00d6e7ab3f6856f57" Selector="&lt;html app='chrome.exe' title='ACME System 1 - Dashboard' /&gt;&lt;webctrl aaname=' 					 Work Items' parentid='dashmenu' tag='BUTTON' /&gt;" WaitForReady="INTERACTIVE" />
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="fd5b0ecee86b21a00d6e7ab3f6856f57" Selector="&lt;html app='chrome.exe' title='ACME System 1 - Dashboard' /&gt;&lt;webctrl aaname='* Work Items' parentid='dashmenu' tag='BUTTON' /&gt;" WaitForReady="INTERACTIVE" />
       </ui:Click.Target>
-      <sap2010:WorkflowViewState.IdRef>Click_1</sap2010:WorkflowViewState.IdRef>
     </ui:Click>
-    <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
-    <sads:DebugSymbol.Symbol>d1NDOlxVc2Vyc1xKdXN0aW5cRG9jdW1lbnRzXFVpUGF0aFxDYWxjdWxhdGVDbGllbnRTZWN1cml0eUhhc2hcU3lzdGVtMV9Xb3JrSXRlbXMueGFtbAM5A0wOAgEBOgVJEAIBAkaYAUaoAgIBAw==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d2pDOlxVc2Vyc1xKdXN0aW5cRG9jdW1lbnRzXFVpUGF0aFxDYWxjdWxhdGVDbGllbnRTZWN1cml0eUhhc2hcQUNNRSBTeXN0ZW0xXFN5c3RlbTFfTmF2aWdhdGVUb1dvcmtJdGVtcy54YW1sAzkDSg4CAQE6BUgQAgECRpgBRqMCAgED</sads:DebugSymbol.Symbol>
   </Sequence>
-  <sap2010:WorkflowViewState.IdRef>System1_WorkItems_1</sap2010:WorkflowViewState.IdRef>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
       <sap2010:ViewStateData Id="Click_1" sap:VirtualizedContainerService.HintSize="314.4,107.2" />

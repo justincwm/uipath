@@ -11,8 +11,8 @@
  xmlns:ui="http://schemas.uipath.com/workflow/activities"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_System1Credential" Type="InArgument(x:String)" />
-    <x:Property Name="in_System1URL" Type="InArgument(x:String)" />
+    <x:Property Name="in_System1_Credential" Type="InArgument(x:String)" />
+    <x:Property Name="in_System1_URL" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -65,18 +65,18 @@
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Login to System 1 using the URL and Credential input arguments. Throws Incorrect Credentials and invokes SendExceptionEmail on wrong credentials.&#xA;&#xA;Precondition: None&#xA;Post action: Opens IE System 1 Dashboard if correct credentials." DisplayName="System1_Login" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="username" />
-      <Variable x:TypeArguments="ss:SecureString" Name="password" />
+      <Variable x:TypeArguments="x:String" Name="Username" />
+      <Variable x:TypeArguments="ss:SecureString" Name="Password" />
       <Variable x:TypeArguments="x:Boolean" Name="LoginSuccessful" />
     </Sequence.Variables>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\GetAppCredentials.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_Username">[username]</OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Credential">[in_System1Credential]</InArgument>
-        <OutArgument x:TypeArguments="ss:SecureString" x:Key="out_Password">[password]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Username">[Username]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_System1_Credential" />
+        <OutArgument x:TypeArguments="ss:SecureString" x:Key="out_Password">[Password]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" Hidden="False" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="False" Url="[in_System1URL]">
+    <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" Hidden="False" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="False" Url="[in_System1_URL]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -84,12 +84,12 @@
           </ActivityAction.Argument>
           <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
-            <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="[username]">
+            <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="[Username]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="f4ecb68a0970edc23dde15abf9b5482f" Selector="&lt;html app='chrome.exe' title='ACME System 1 - Account - Log In' /&gt;&lt;webctrl id='email' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:TypeSecureText DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Secure Text 'INPUT  password'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeSecureText_2" SecureText="[password]" SendWindowMessages="False" SimulateType="False">
+            <ui:TypeSecureText DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Secure Text 'INPUT  password'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeSecureText_2" SecureText="[Password]" SendWindowMessages="False" SimulateType="False">
               <ui:TypeSecureText.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c32d494492bbe0c6f45b2bc4b23bb1ce" Selector="&lt;webctrl id='password' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
               </ui:TypeSecureText.Target>
@@ -149,7 +149,7 @@
         </Sequence>
       </If.Then>
     </If>
-    <sads:DebugSymbol.Symbol>d1xDOlxVc2Vyc1xKdXN0aW5cRG9jdW1lbnRzXFVpUGF0aFxDYWxjdWxhdGVDbGllbnRTZWN1cml0eUhhc2hcQUNNRSBTeXN0ZW0xXFN5c3RlbTFfTG9naW4ueGFtbB9CA5kBDgIBAUgFTh0CASBPBXMWAgERdAV4GgIBDHkFlwEKAgECTE1MVwIBJktGS1wCASRKRkpQAgEiSLEBSNMBAgEhT78BT9ABAgEeVQtwFgIBEnaDAXboAQIBEHbzAXb5AQIBD3RCdFUCAQ15E3kqAgEDewmVARQCAQVWDVaFAQIBHVcNWxsCARlcDWAhAgEVYQ1vGAIBE3wLgAEjAgEKgQELkwEWAgEIlAELlAHOAQIBBlmgAVmSAgIBHFeWAleiAgIBGl6gAV7NAQIBGFyRAlydAgIBFm2gAW3RAQIBFHy3AXzOAQIBC40BhAGNAYsCAgEJlAFFlAGhAQIBBw==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d1xDOlxVc2Vyc1xKdXN0aW5cRG9jdW1lbnRzXFVpUGF0aFxDYWxjdWxhdGVDbGllbnRTZWN1cml0eUhhc2hcQUNNRSBTeXN0ZW0xXFN5c3RlbTFfTG9naW4ueGFtbB5CA5kBDgIBAUgFTh0CASBPBXMWAgERdAV4GgIBDHkFlwEKAgECTE1MVwIBJEpGSlACASJIsQFI0wECASFPvwFP0QECAR5VC3AWAgESdoMBdugBAgEQdvMBdvkBAgEPdEJ0VQIBDXkTeSoCAQN7CZUBFAIBBVYNVoUBAgEdVw1bGwIBGVwNYCECARVhDW8YAgETfAuAASMCAQqBAQuTARYCAQiUAQuUAc4BAgEGWaABWZICAgEcV5cCV6MCAgEaXqABXs0BAgEYXJICXJ4CAgEWbaABbdEBAgEUfLcBfM4BAgELjQGEAY0BiwICAQmUAUWUAaEBAgEH</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
